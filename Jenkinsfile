@@ -16,12 +16,19 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh './output'
+                script {
+                    sh './output'
+                    sh 'echo 1'
+                    sh 'echo 2'
+                    sh 'echo 3'
+                    sh 'echo 4'
+                    sh 'echo 5'
+                }
             }
         }
         stage('Deploy') {
             steps {
-                sh 'exit 1'
+                echo 'deploy'
             }
         }
     }
